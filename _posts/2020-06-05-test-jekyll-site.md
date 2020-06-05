@@ -7,7 +7,11 @@ layout: post
 
 新建或者编辑文章。
 
-然后在文件夹 ~/mysite/nanoorchis.github.io下运行
+在 ~/mysite/nanoorchis.github.io/ 下运行 jekyll server
+
+然后按提示的地址在浏览器中查看效果。
+
+修改完成后在文件夹 ~/mysite/nanoorchis.github.io下运行
 
 cd ~/mysite/nanoorchis.github.io
 
