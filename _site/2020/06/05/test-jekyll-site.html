@@ -45,50 +45,27 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>日常更新操作流程</p>
+    <h1 id="日常更新操作流程">日常更新操作流程</h1>
 
-<p>进入文件夹  ~/mysite/nanoorchis.github.io/_posts</p>
+<ol>
+  <li>进入文件夹  ~/nanoorchis.github.io/_posts 新建或者编辑文章。</li>
+  <li>在 ~/nanoorchis.github.io/ 下运行 jekyll server，然后按提示的地址在浏览器中查看效果。</li>
+  <li>修改完成后在文件夹 ~/mysite/nanoorchis.github.io下运行<code class="language-plaintext highlighter-rouge">cd ~/nanoorchis.github.io</code><code class="language-plaintext highlighter-rouge">git add --all</code>git commit -m “some commit”``git push -u origin master`</li>
+  <li>等待几分钟。</li>
+</ol>
 
-<p>新建或者编辑文章。</p>
+<h1 id="初始化操作流程">初始化操作流程</h1>
 
-<p>在 ~/mysite/nanoorchis.github.io/ 下运行 jekyll server</p>
+<ol>
+  <li>将仓库克隆到本地 Git clone</li>
+  <li>修改 Gemfile。注释掉全部Gem打头的语句。</li>
+  <li>Create a new Jekyll site 。执行jekyll new .</li>
+  <li>启动预览，bundle exec jekyll serve。打开浏览器查看。</li>
+</ol>
 
-<p>然后按提示的地址在浏览器中查看效果。</p>
+<p>在gemfile中增加</p>
 
-<p>修改完成后在文件夹 ~/mysite/nanoorchis.github.io下运行</p>
-
-<p>cd ~/mysite/nanoorchis.github.io</p>
-
-<p>git add –all</p>
-
-<p>git commit -m “some commit”</p>
-
-<p>git push -u origin master</p>
-
-<p>重新来一遍</p>
-
-<p>将仓库克隆到本地</p>
-
-<p>Git clone</p>
-
-<p>Create a new Jekyll site</p>
-
-<p>jekyll new .</p>
-
-<p>报错 Could not find gem ‘minima (~&gt; 2.5)’ in any of the gem sources listed in your Gemfile.</p>
-
-<p>尝试安装缺失的包 sudo gem install minima</p>
-
-<p>依旧报错。clone minima包后一个个复制文件，执行new，看看需要哪个文件。</p>
-
-<p>查看 Gemfile，有说明 remove the “gem “jekyll”” above and uncomment the line below. To upgrade, run <code class="language-plaintext highlighter-rouge">bundle update github-pages</code>.</p>
-
-<p>报错缺的包都不是必须的。</p>
-
-<p>bundle exec jekyll serve</p>
-
-<p>打开流星器查看</p>
-
+<p>source ‘https://rubygems.org’ require ‘json’ require ‘open-uri’ versions = JSON.parse(open(‘https://pages.github.com/versions.json’).read) gem ‘github-pages’, versions[‘github-pages’]</p>
 
   </div><a class="u-url" href="/2020/06/05/test-jekyll-site.html" hidden></a>
 </article>
