@@ -319,4 +319,12 @@ To test your theme, run `script/server` (or `bundle exec jekyll serve`) and open
 
 ## License
 
+<<<<<<< HEAD
 The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+=======
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+### Some Test
+try to add title: to _config.yml , topLeft text change
+add name: ,nothing happen
+>>>>>>> f534367591011fa42d8207f012eee881312af4bb
