@@ -1,27 +1,37 @@
 ---
 layout: post
 ---
-日常更新操作流程
+# 日常更新操作流程
 
-进入文件夹  ~/mysite/nanoorchis.github.io/_posts
+进入文件夹  ~/nanoorchis.github.io/_posts
 
 新建或者编辑文章。
 
-在 ~/mysite/nanoorchis.github.io/ 下运行 jekyll server
+在 ~/nanoorchis.github.io/ 下运行bundle exec jekyll server
 
 然后按提示的地址在浏览器中查看效果。
 
-修改完成后在文件夹 ~/mysite/nanoorchis.github.io下运行
+修改完成后在文件夹 ~/nanoorchis.github.io下运行
 
-cd ~/mysite/nanoorchis.github.io
+cd ~/nanoorchis.github.io
 
-git add --all
+git add .
 
 git commit -m "some commit"
 
 git push -u origin master
 
 
+
+# 整理最后一次的流程
+
+清空所有文件。
+
+git clone minima主题。
+
+清空git缓存，然后push。中间碰到了git提示冲突，解决办法是将minima中的config内容复制。 index另存为。 
+
+# 之前的尝试
 
 重新来一遍
 
