@@ -123,17 +123,17 @@ Gradle 执行分配置和运行两个阶段。
 
 直接从官网下载
 
-1.3.2 下载和安装Android SDK
+### 1.3.2 下载和安装Android SDK
 
 SDK设置使用国内镜像。
 
 找不到sdkr的文件夹。
 
-1.3.3 常见错误
+### 1.3.3 常见错误
 
-1.3.4 安装运行、调试。
+### 1.3.4 安装运行、调试。
 
-1.3.5 在github中安装jekyll
+### 1.3.5 在github中安装jekyll
 
 查看自己jekyll版本
 
@@ -157,23 +157,75 @@ gem update jekyll
 
 
 
-1.4
+## 1.4 Android 常用开发工具的用法
 
-1.4。.1
+### 1.4.1 使用：Monitor进行调试
 
 monitor.bat
 
-1.5 开始第一个Android 应用
+### 1.4.2 ADB的用法
 
-1.6 Android应用结构分析
+### 1.4.3 使用mksdcard管理虚拟SD卡
 
-1.7 Android应用的基本组件介绍
+## 1.5 开始第一个Android 应用
+
+### 1.5.1 使用android开发第一个Android应用
+
+### 1.5.2 通过android Studio运行Android应用
+
+## 1.6 Android应用结构分析
+
+### 1.6.1 Android项目结构分析
+
+gradle配置国内中央仓库
+
+在project 的 build.gradle中添加，buildscript{ respositories{  maven { url 'https://maven.aliyun.com/repository/public' }  }}
+
+### 1.6.2 自动生成的R文件
+
+### 1.6.3 res目录说明
+
+### 1.6.4 Android应用的清单文件 AndroidManifest.xml
+
+### 1.6.5 应用程序权限说明
+
+## 1.7 Android应用的基本组件介绍
+
+### 1.7.1 Activity和View
+
+Activity is a window. use function setView() to set what to show.
+
+Use setTheme(int ssid) to set the theme of the window.
+
+### 1.7.2 Service
+
+无图形用户界面。
+
+### 1.7.3 BroadcastReceiver
+
+相当于一个全局的事件监听器。
+
+### 1.7.4 ContentProvider
+
+用于应用之间交换数据。一个应用使用 ContentProvider暴露数据，另一个应用通过ContentResolver来访问数据。
+
+### 1.7.5 继续
 
 1.8 使用Android 9 来签名APK
 
 1.9 本章小结
 
 2 Android 应用的界面编程
+
+本章学习完后，读者就能开发出美丽的图形界面。
+
+2.1 界面编程与视图组件
+
+2.1.1 视图组件与容器组件59
+
+view与view group相互嵌套。
+
+如何看Android SDK文档？Documentation for Android SDK
 
 3 Android事件机制
 
