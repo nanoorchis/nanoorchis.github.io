@@ -1,4 +1,5 @@
 ---
+
 layout: post
 
 ---
@@ -209,23 +210,173 @@ Use setTheme(int ssid) to set the theme of the window.
 
 用于应用之间交换数据。一个应用使用 ContentProvider暴露数据，另一个应用通过ContentResolver来访问数据。
 
-### 1.7.5 继续
+### 1.7.5 Intent和IntentFilter
 
-1.8 使用Android 9 来签名APK
+## 1.8 使用Android 9 来签名APK
 
-1.9 本章小结
+### 1.8.1使用AS对Android应用签名
 
-2 Android 应用的界面编程
+### 1.8.2使用AS的命令对Android应用签名
+
+## 1.9本章小结
+
+# 2 Android 应用的界面编程
 
 本章学习完后，读者就能开发出美丽的图形界面。
 
-2.1 界面编程与视图组件
+## 2.1 界面编程与视图组件
 
-2.1.1 视图组件与容器组件59
+### 2.1.1 视图组件与容器组件59
 
 view与view group相互嵌套。
 
 如何看Android SDK文档？Documentation for Android SDK
+
+https://developer.android.google.cn/reference/kotlin/classes
+
+view类常用XML属性及方法。
+
+### 2.1.2 使用XML布局文件控制UI界面
+
+### 2.1.3 在代码中控制UI界面
+
+不推荐
+
+### 2.1.4 使用XML布局和代码混合控制UI界面
+
+### 2.1.5 开发自定义View
+
+## 2.2 第1组UI组件 布局管理器
+
+### 2.2.1 线性布局
+
+### 2.2.2 表格布局
+
+### 2.2.3 帧布局
+
+### 2.2.4 绝对布局
+
+实现通过handler在子线程中通知UI更改
+
+新建虚拟机。屏幕尺寸6.4inch
+
+分辨率2310乘1080
+
+使用API29
+
+### 2.2.5 约束布局
+
+目前尝试的界面是三个。
+
+Layout
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editText" />
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="665dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+```java
+package com.example.android.myapplication20200729;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.Button;
+
+import java.lang.ref.WeakReference;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MainActivity extends AppCompatActivity {
+
+    class MyHandler extends Handler{
+        private WeakReference<MainActivity> activity;
+        public MyHandler(WeakReference<MainActivity>activity){
+            this.activity=activity;
+        }
+        private int currentColor=0;
+        int[] colors=new int[]{R.color.color1,R.color.color2};
+        @Override public void handleMessage(Message msg){
+            if(msg.what==0x123){
+                (findViewById(R.id.button)).setBackgroundResource(colors[1]);
+            }else if(msg.what==0x122){
+                (findViewById(R.id.button)).setBackgroundResource(colors[0]);
+            }
+            super.handleMessage(msg);
+        }
+    }
+    private Handler handler=new MyHandler(new WeakReference<MainActivity>(this));
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x123);
+            }
+        }, 0, 1000);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0x122);
+            }
+        }, 500, 1000);
+    }
+}
+```
 
 3 Android事件机制
 
