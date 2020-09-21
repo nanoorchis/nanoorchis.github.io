@@ -378,7 +378,39 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+## 2.3 第二组UI组件：TextView及其子类
+
+### 2.3.1 TextView和EditText功能与用法
+
+P85页 TextView支持的XML属性及相关方法
+
+### 2.3.2 EditText功能与用法
+
+### 2.3.3 Button 组件的功能与用法
+
+2.3.4 使用9Patch图片作为背景 P92
+
+2.3.5 单选钮和复选框的用法
+
+2.3.6 状态开关按钮和开关的用法
+
+ToggleButton 
+
+Switch
+
+2.3.7 时钟的功能与用法
+
+
+
+2.3.8 计时器
+
+2.4 第3组UI组件：ImageView及其子类
+
+ImageView useed to show drawable items, any.
+
 3 Android事件机制
+
+写个小程序，SetTimeForNextDay
 
 4 深入理解Activity与Fragment
 
